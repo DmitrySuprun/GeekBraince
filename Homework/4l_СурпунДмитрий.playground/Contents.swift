@@ -107,6 +107,12 @@ enum Action {
 class SportsCar: Car {
     static var countOfSportsCarProduced: Int = 0
     var roofOpen: Bool = false
+    
+    override init(brand: String, year: Int, bodyVol: Int) {
+        SportsCar.countOfSportsCarProduced += 1
+        print("Общее количество выпущенных легковых машин: \(SportsCar.countOfSportsCarProduced)")
+        super.init(brand: brand, year: year, bodyVol: bodyVol)
+    }
     override func makeAction (action: Action) {
         switch action {
         case .engineRun : engineRun = true
@@ -134,15 +140,18 @@ class SportsCar: Car {
         print("Крыша: \(roofOpen ? "Открыта" : "Закрыта")")
         print("________________________________________________________")
     }
-    override init(brand: String, year: Int, bodyVol: Int) {
-        SportsCar.countOfSportsCarProduced += 1
-        print("Общее количество выпущенных легковых машин: \(SportsCar.countOfSportsCarProduced)")
-        super.init(brand: brand, year: year, bodyVol: bodyVol)
-    }
+    
 }
 class TrunkCar: Car {
     static var countOfTrunkCarProduced: Int = 0
     var lowerGear: Bool = true
+    
+    override init(brand: String, year: Int, bodyVol: Int) {
+        TrunkCar.countOfTrunkCarProduced += 1
+        print("Общее количество выпущенных грузовых машин: \(TrunkCar.countOfTrunkCarProduced)")
+        super.init(brand: brand, year: year, bodyVol: bodyVol)
+    }
+    
     override func makeAction (action: Action) {
         switch action {
         case .engineRun : engineRun = true
@@ -170,11 +179,7 @@ class TrunkCar: Car {
         print("Пониженная передача: \(lowerGear ? "Включена" : "Выключена")")
         print("________________________________________________________")
     }
-    override init(brand: String, year: Int, bodyVol: Int) {
-        TrunkCar.countOfTrunkCarProduced += 1
-        print("Общее количество выпущенных грузовых машин: \(TrunkCar.countOfTrunkCarProduced)")
-        super.init(brand: brand, year: year, bodyVol: bodyVol)
-    }
+    
 }
 // Легковые авто
 var car1 = SportsCar(brand: "VW", year: 2010, bodyVol: 150)
