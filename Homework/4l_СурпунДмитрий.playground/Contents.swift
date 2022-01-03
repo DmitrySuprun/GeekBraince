@@ -21,21 +21,22 @@ class Car {
     let carBrand: String
     let yearOfManufacture: Int
     let trunkVolume: Int
+    var bodyVolume: BodyVolume
     
 // Проверяем уловие максимального и минимального запролнения багажника
     var currentLevelInTrunk: Int = 0 {
         didSet {
-            if currentLevelInTrunk > trunkVolume {
+            if currentLevelInTrunk >= trunkVolume {
                 currentLevelInTrunk = trunkVolume
-                BodyVolume.full
-                print(BodyVolume.full.rawValue)
+                bodyVolume = .full
+                print(bodyVolume.rawValue)
             }
             if currentLevelInTrunk <= 0 {
                 currentLevelInTrunk = 0
-                BodyVolume.empty
-                print(BodyVolume.empty.rawValue)
+                bodyVolume = .empty
+                print(bodyVolume.rawValue)
             } else {
-                BodyVolume.readyToLoad
+                bodyVolume = .readyToLoad
             }
         }
     }
@@ -81,7 +82,7 @@ class Car {
 // Даем возможность указать год автомобиля только в заданном диапазоне
         yearOfManufacture = 1980...2021 ~= year ? year : 2021
         trunkVolume = bodyVol
-        BodyVolume.empty
+        bodyVolume = BodyVolume.empty
         printStatus()
     }
 }
