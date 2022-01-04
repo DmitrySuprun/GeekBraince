@@ -10,10 +10,10 @@ import GameplayKit
 
 struct CollisionCatigories {
     
-    static let Snake: UInt32 = 0x1 << 0 // 00010 2
-    static let SnakeHead: UInt32 = 0x1 << 1 // 00100 4
-    static let Apple: UInt32 = 0x1 << 2 // 01000 8
-    static let EdgeBody: UInt32 = 0x1 << 3 // 10000 16
+    static let Snake: UInt32 = 0x1 << 0 // 0001 2
+    static let SnakeHead: UInt32 = 0x1 << 1 // 0010 4
+    static let Apple: UInt32 = 0x1 << 2 // 0100 8
+    static let EdgeBody: UInt32 = 0x1 << 3 // 1000 16
     
 }
 
@@ -94,8 +94,8 @@ class GameScene: SKScene {
     }
     
     func createApple() {
-        let randX = CGFloat(arc4random_uniform(UInt32(view!.scene!.frame.maxX - 10)))
-        let randY = CGFloat(arc4random_uniform(UInt32(view!.scene!.frame.maxY - 10)))
+        let randX = CGFloat(arc4random_uniform(UInt32(view!.scene!.frame.maxX) - 15))
+        let randY = CGFloat(arc4random_uniform(UInt32(view!.scene!.frame.maxY) - 15))
         
         let apple = Apple(position: CGPoint(x: randX, y: randY))
         self.addChild(apple)
@@ -120,12 +120,9 @@ extension GameScene: SKPhysicsContactDelegate {
             snake!.addBody()
             apple?.removeFromParent()
             createApple()
-            
-        case CollisionCatigories.EdgeBody:
-            snake!.addBody()
 
-            //
-            break
+        case CollisionCatigories.EdgeBody:
+            snake!.removeFromParent()
         default: break
         }
     }
