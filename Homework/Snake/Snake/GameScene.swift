@@ -55,6 +55,7 @@ class GameScene: SKScene {
         createApple()
         snake = Snake(atPoint: CGPoint(x: view.scene!.frame.midX, y: view.scene!.frame.midY))
         self.addChild(snake!)
+        
         self.physicsWorld.contactDelegate = self
         self.physicsBody?.categoryBitMask = CollisionCatigories.EdgeBody
         self.physicsBody?.collisionBitMask = CollisionCatigories.Snake | CollisionCatigories.SnakeHead
@@ -94,14 +95,14 @@ class GameScene: SKScene {
     }
     
     func createApple() {
-        let randX = CGFloat(arc4random_uniform(UInt32(view!.scene!.frame.maxX) - 15))
-        let randY = CGFloat(arc4random_uniform(UInt32(view!.scene!.frame.maxY) - 15))
+        let randX = CGFloat(arc4random_uniform(UInt32(view!.scene!.frame.maxX) - 20))
+        let randY = CGFloat(arc4random_uniform(UInt32(view!.scene!.frame.maxY) - 20))
         
         let apple = Apple(position: CGPoint(x: randX, y: randY))
         self.addChild(apple)
         
         self.physicsWorld.contactDelegate = self
-        self.physicsBody = SKPhysicsBody(circleOfRadius: 10.0, center: CGPoint(x: 5, y: 5))
+        self.physicsBody?.categoryBitMask = CollisionCatigories.EdgeBody
     }
 }
 
@@ -118,11 +119,18 @@ extension GameScene: SKPhysicsContactDelegate {
         case CollisionCatigories.Apple:
             let apple = contact.bodyA.node is Apple ? contact.bodyA.node : contact.bodyB.node
             snake!.addBody()
+            snake?.moveSpeed += 10
             apple?.removeFromParent()
             createApple()
 
+
         case CollisionCatigories.EdgeBody:
-            snake!.removeFromParent()
+            snake?.body.forEach { $0.removeFromParent() }
+            snake?.removeFromParent()
+            snake = nil
+            snake = Snake(atPoint: CGPoint(x: (view?.scene!.frame.midX)!, y: (view?.scene!.frame.midY)!))
+            self.addChild(snake!)
+            
         default: break
         }
     }
