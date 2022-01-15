@@ -72,23 +72,23 @@ for _ in 0...24 {
 }
 print("Начальный порядок в очереди из \(queueExample.count()) элементов:")
 print(queueExample)
-print("")
-print("peek - возвращает первый элемент: \(queueExample.peek()!), количество элементов в очереди: \(queueExample.count())")
+
+print("\npeek - возвращает первый элемент: \(queueExample.peek()!), количество элементов в очереди: \(queueExample.count())")
 print(queueExample)
-print("")
-print("pool - возвращает первый элемент и удаляет его: \(queueExample.poll()!), количество элементов в очереди: \(queueExample.count())")
+
+print("\npool - возвращает первый элемент и удаляет его: \(queueExample.poll()!), количество элементов в очереди: \(queueExample.count())")
 print(queueExample)
-print("")
-print("sorted - сортирует очередь в соответствие с переданным клоужером(замыканием):")
+
+print("\nsorted - сортирует очередь в соответствие с переданным клоужером(замыканием):")
 print(queueExample.sorted(by: >))
-print("")
-print("filter - фильтрует элементы в соответствие с переданным клоужером:")
+
+print("\nfilter - фильтрует элементы в соответствие с переданным клоужером:")
 // отфильтровать элементы попадающие в диапазон от 1 до 5
 print(queueExample.filter {1...5 ~= $0})
 // строчка выше может привести к удалению всех элементов очереди, что приведет к завершению программы, добавим один элемент
 queueExample.push(element: 0)
-print("")
-print("Обращение к очереди по индексу")
+
+print("\nОбращение к очереди по индексу")
 print(queueExample[0]!)
 queueExample[0] = 100
 print(queueExample[0]!)
