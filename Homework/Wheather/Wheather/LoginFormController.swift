@@ -67,29 +67,35 @@ override func viewWillAppear(_ animated: Bool) {
 
     
     @IBAction func loginButtonPressed(_ sender: Any) {
+        
+    }
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        // Проверяем данные
+        let checkResult = checkUserData()
+        if !checkResult {
+            showLoginError()
+        }
+        return checkResult
+    }
+    
+    func checkUserData() -> Bool {
         // Получаем текст логина
         let login = loginInput.text!
         // Получаем текст-пароль
         let password = passwordInput.text!
-        
         // Проверяем, верны ли они
         if login == "admin" && password == "123456" {
-            print("успешная авторизация")
+            return true
         } else {
-            print("неуспешная авторизация")
+            return false
         }
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func showLoginError() {
+        let alertWrongPassword = UIAlertController(title: "Ошибка", message: "Неверный пароль", preferredStyle: .alert)
+        let okButton = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alertWrongPassword.addAction(okButton)
+        present(alertWrongPassword, animated: true, completion: nil)
     }
-    */
-
 }
 
