@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D566097B2792B68C00F52CD3 /* AnotherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D566097A2792B68C00F52CD3 /* AnotherViewController.swift */; };
 		D57B50AD278B7D9E008E256E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57B50AC278B7D9E008E256E /* AppDelegate.swift */; };
 		D57B50AF278B7D9E008E256E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57B50AE278B7D9E008E256E /* SceneDelegate.swift */; };
 		D57B50B1278B7D9E008E256E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57B50B0278B7D9E008E256E /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D566097A2792B68C00F52CD3 /* AnotherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherViewController.swift; sourceTree = "<group>"; };
 		D57B50A9278B7D9E008E256E /* VK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D57B50AC278B7D9E008E256E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D57B50AE278B7D9E008E256E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				D57B50AC278B7D9E008E256E /* AppDelegate.swift */,
 				D57B50AE278B7D9E008E256E /* SceneDelegate.swift */,
 				D57B50B0278B7D9E008E256E /* ViewController.swift */,
+				D566097A2792B68C00F52CD3 /* AnotherViewController.swift */,
 				D57B50B2278B7D9E008E256E /* Main.storyboard */,
 				D57B50B5278B7D9F008E256E /* Assets.xcassets */,
 				D57B50B7278B7D9F008E256E /* LaunchScreen.storyboard */,
@@ -140,6 +143,7 @@
 			files = (
 				D57B50B1278B7D9E008E256E /* ViewController.swift in Sources */,
 				D57B50AD278B7D9E008E256E /* AppDelegate.swift in Sources */,
+				D566097B2792B68C00F52CD3 /* AnotherViewController.swift in Sources */,
 				D57B50AF278B7D9E008E256E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
